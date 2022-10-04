@@ -1,14 +1,16 @@
-
 class Piece
     
-    def initialize(type)
-        @type = type
-
+    def initialize(color, board, pos)
+        @color = color #symbol
+        @board = board
+        @pos = pos
     end
 
-    def inspect
-        @type
+    def to_s
+        self.class.name
     end
+
+    
 end
 
 class NullPiece < Piece
@@ -21,8 +23,15 @@ end
 
 class Rook < Piece
 
-    def initialize
-        @type = "rook"
+    # def initialize
+        
+    # end
+
+    def inspect
+        "rook"
     end
 
 end
+
+piece = Piece.new("red", "r", "r")
+puts piece
