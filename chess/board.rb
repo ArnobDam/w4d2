@@ -42,9 +42,31 @@ class Board
         @rows[x][y] = val
     end
 
+    def move_piece(start_pos, end_pos)
+        unless start_pos.all? {|idx| idx.between?(0,7)}
+            raise 'starting position out of bounds'
+        end
+
+        unless end_pos.all? {|idx| idx.between?(0,7)}
+            raise 'ending position out of bounds'
+        end
+
+        if self[start_pos] == nil 
+            raise 'no piece at starting position'
+        elsif self[end_pos] != nil
+            raise 'end position occupied'
+        end
+
+        self[end_pos] = self[start_pos]
+        self[start_pos] = nil
+
+    end
+
     def print_board
         rows.each{|row| print "#{row}\n"}
     end
+
+
 end
 
 b = Board.new
