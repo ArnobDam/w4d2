@@ -2,8 +2,8 @@
 class Piece
     
     def initialize(type)
-
         @type = type
+
     end
 
     def inspect
@@ -15,6 +15,14 @@ class NullPiece < Piece
 
     def intialize
         @type = "null"
+    end
+
+end
+
+class Rook < Piece
+
+    def initialize
+        @type = "rook"
     end
 
 end
